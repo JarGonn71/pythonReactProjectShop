@@ -2,6 +2,13 @@ from rest_framework import serializers
 from .models import *
 
 
+class CollectionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Collection
+        fields = '__all__'
+
+
 class SizeProductSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -28,7 +35,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class ProductRetrieveSerializer(serializers.ModelSerializer):
-
+    # final_price = serializers.IntegerField(required=True)
     floor = MyFloorSerializer()
     size = SizeProductSerializer(many=True)
     category = CategorySerializer()
@@ -50,7 +57,7 @@ class CartProductSerializer(serializers.ModelSerializer):
 class OrderCustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model= Order
+        model = Order
         fields = '__all__'
 
 

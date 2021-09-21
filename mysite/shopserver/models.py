@@ -187,9 +187,9 @@ class Order(models.Model):
 
     customer = models.ForeignKey(Customer, verbose_name='Покупатель', related_name='related_orders', on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, verbose_name='Корзина', on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=255, verbose_name='Имя')
-    last_name = models.CharField(max_length=255, verbose_name='Фамилия')
-    phone = models.CharField(max_length=30, verbose_name='Телефон')
+    first_name = models.CharField(max_length=255, verbose_name='Имя', null=True, blank=True)
+    last_name = models.CharField(max_length=255, verbose_name='Фамилия', null=True, blank=True)
+    phone = models.CharField(max_length=30, verbose_name='Телефон', null=True, blank=True)
     address = models.CharField(max_length=1024, verbose_name='Адрес', null=True, blank=True)
     status = models.CharField(
         max_length=100,

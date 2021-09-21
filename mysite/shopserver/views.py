@@ -1,7 +1,8 @@
-from rest_framework import viewsets, status, permissions
+from rest_framework import viewsets, status, permissions, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import *
@@ -24,6 +25,11 @@ from rest_framework_simplejwt.tokens import RefreshToken
 #         except Exception as e:
 #             return Response(status=status.HTTP_400_BAD_REQUEST)
 
+class CollectionSet(viewsets.ModelViewSet):
+
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+
 
 class SizeProductSet(viewsets.ModelViewSet):
 
@@ -38,10 +44,10 @@ class CategorySet(viewsets.ModelViewSet):
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-
     queryset = Product.objects.all()
     serializer_class = ProductRetrieveSerializer
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend, filters.OrderingFilter, )
+    ordering_fields = ('price', 'final_price', 'created_at')
     filterset_class = ProductFilter
 
 
@@ -49,6 +55,61 @@ class CartProductSet(viewsets.ModelViewSet):
 
     queryset = CartProduct.objects.all()
     serializer_class = CartProductSerializer
+
+
+class OrderSet(viewsets.ModelViewSet):
+    serializer_class = OrderCustomerSerializer
+    queryset = Order.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    @staticmethod
+    def get_order(user, cart, customer):
+        order, created = Order.objects.get_or_create(
+            customer=customer,
+            cart = cart,
+            first_name = user.first_name,
+            last_name = user.last_name,
+            phone = customer.phone,
+            address = customer.address,
+        )
+        return order
+
+    @staticmethod
+    def get_cart(user):
+        if user.is_authenticated:
+            cart, created = Cart.objects.get_or_create(
+                owner=user.customer,
+                for_anonymous_user=False
+            )
+            return cart
+        return Cart.objects.filter(for_anonymous_user=True).first()
+
+    @action(methods=["get"], detail=False)
+    def current_customer_order(self, request, *args, **kwargs):
+        customer, created = Customer.objects.get_or_create(
+            user = request.user,
+        )
+        cart = self.get_cart(self.request.user)
+        order = self.get_order(self.request.user, cart, customer)
+        cart_serializer = CartSerializer(cart)
+        order_serializer = OrderCustomerSerializer(order)
+        return Response( {"order":order_serializer.data,
+                          "cart":cart_serializer.data
+                          })
+
+    @action(methods=["get"], detail=False)
+    def customer_orders(self, request, *args, **kwargs):
+        customer, created = Customer.objects.get_or_create(
+            user=request.user,
+        )
+        print(customer)
+        print(Order.objects.filter(customer=customer))
+
+        order = Order.objects.filter(customer=customer)
+        print(order)
+        order_serializer = OrderCustomerSerializer(order)
+        print(order_serializer)
+        return Response(order_serializer.data)
 
 
 class CartViewSet(viewsets.ModelViewSet):
@@ -69,10 +130,8 @@ class CartViewSet(viewsets.ModelViewSet):
 
     @staticmethod
     def _get_or_create_cart_product(customer: Customer, cart: Cart, product: Product, size):
-        print(size)
         if not size:
             size = product.size.first()
-        print(size)
         cart_product, created = CartProduct.objects.get_or_create(
             user=customer,
             content_object=product,
@@ -142,6 +201,4 @@ class CartViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class OrderSet(viewsets.ModelViewSet):
-    serializer_class = OrderCustomerSerializer
-    queryset = Order.objects.all()
+

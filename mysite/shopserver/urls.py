@@ -10,6 +10,7 @@ router.register('product', ProductViewSet, basename='product')
 router.register('cart', CartViewSet, basename='cart')
 router.register('cart-product', CartProductSet, basename='cart-product')
 router.register('order', OrderSet, basename='order')
+router.register('collection', CollectionSet, basename='collection')
 # router.register('customer', CustomerSet, basename='customer')
 
 
