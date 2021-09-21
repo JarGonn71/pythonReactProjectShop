@@ -18,7 +18,7 @@ const initialState = {
 }
 
 const modalReducer = (state=initialState, action) =>{
-    switch (action.type) {
+   switch (action.type) {
         case CLOSE_ALL_WINDOW:
             return{
                 ...state,
@@ -42,7 +42,8 @@ const modalReducer = (state=initialState, action) =>{
                 showCart: !state.showCart,
                 showLike: false,
                 showAuthenticated: false,
-                showMenu: false
+                showMenu: false,
+                showActiveProduct: false
             }
         case SHOW_LIKE:
             return{
@@ -51,7 +52,8 @@ const modalReducer = (state=initialState, action) =>{
                 showCart: false,
                 showLike: !state.showLike,
                 showAuthenticated: false,
-                showMenu: false
+                showMenu: false,
+                 showActiveProduct: false
             }
         case SHOW_AUTHENTICATED:
             return{
@@ -60,7 +62,8 @@ const modalReducer = (state=initialState, action) =>{
                 showCart: false,
                 showLike: false,
                 showAuthenticated: !state.showAuthenticated,
-                showMenu: false
+                showMenu: false,
+                showActiveProduct: false
             }
         case SHOW_MENU:
             return{
@@ -68,7 +71,8 @@ const modalReducer = (state=initialState, action) =>{
                 showCart: false,
                 showLike: false,
                 showAuthenticated: false,
-                showMenu: !state.showMenu
+                showMenu: !state.showMenu,
+                showActiveProduct: false
             }
         case CLOSE_AUTH:
             return{
