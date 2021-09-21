@@ -1,0 +1,17 @@
+.wrapper-profile{
+    min-height: 100vh;
+    width: 100%;
+    background: rgb(51, 231, 192);
+    border-radius: 20px;
+    position: relative;
+    animation: showProfileAndHome .5s ease-in-out;
+}
+
+@keyframes showProfileAndHome {
+    0%{ 
+        transform:  translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}

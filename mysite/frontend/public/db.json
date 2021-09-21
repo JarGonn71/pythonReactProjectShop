@@ -1,0 +1,61 @@
+{
+    "category": [
+        {
+            "id":0,
+            "name": "Худи"
+        },
+        {
+            "id":1,
+            "name": "Свитшоты"
+        },
+        {
+            "id":2,
+            "name": "Футболки"
+        },
+        {
+            "id":3,
+            "name": "Платья"
+        }
+    ],
+
+
+     "products":[
+            {
+                "id": 0,
+                "URLimg": "https://garry-print.ru/upload/thumb/images/bf/bf07fb36je8f_470x0.jpg",
+                "name": "Пламя и лед",
+                "Category": 0,
+                "price": 2600
+            },
+            {
+                "id": 1,
+                "URLimg": "https://garry-print.ru/upload/thumb/images/yr/yrdcg10ja4a_470x0.jpg",
+                "name": "Пламя и лед",
+                "Category": 0,
+                "price": 2600
+            },
+            {
+                "id": 2,
+                "URLimg": "https://garry-print.ru/upload/thumb/images/3b/3b96dj46b_470x0.jpg",
+                "name": "Пламя и лед",
+                "Category": 0,
+                "price": 2600
+            },
+            {
+                "id": 3,
+                "URLimg": "https://garry-print.ru/upload/thumb/images/dc/dcf14j1de_470x0.jpg",
+                "name": "Пламя и лед",
+                "Category": 0,
+                "price": 2600
+            },
+            {
+                "id": 4,
+                "URLimg": "https://garry-print.ru/upload/thumb/images/da/da1d8j024_470x0.jpg",
+                "name": "Пламя и лед",
+                "Category": 0,
+                "price": 2600
+            }
+        ]
+    
+   
+}

@@ -1,0 +1,119 @@
+.wrapper-nav{
+
+    .buttonMenu{
+        display: none;
+        cursor: pointer;
+    }
+
+    .navbarMenuItems{
+        position: relative;
+        display: flex;
+
+        .navbarMenuItem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 40px;
+            cursor: pointer;
+            svg{
+                color: black;
+            }
+
+            .titlenavbarMenuItem{
+                display: none;
+            }
+
+
+            span{
+                margin: 0px 20px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 960px){
+    .wrapper-nav{
+        .buttonMenu{
+            display: block;
+            z-index: 110000;
+        }
+        
+        .navbarMenuItems{
+            display: none;
+
+            &.active{
+                position: absolute;
+                background: #545254;
+                z-index: 100;
+                height: 100vh;
+                width: 100%;
+                left: 0;
+                padding-top: 150px;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                color: white;
+                justify-content: flex-start;
+        
+                .navbarMenuItem{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 60px 0px;
+                    margin-left: 0px;
+                    svg{
+                        color: white;
+                    }
+                    a{  
+                        color: white;
+                        text-decoration: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        span{
+                            display: none;
+                        }
+                        svg{
+                            color: white;
+                        }
+    
+                        .titlenavbarMenuItem{
+                            display: block;
+                            margin-left: 12px;
+                            font-size: 21px;
+                            font-weight: 500;
+                        }
+            
+                        span{
+                            margin: 0px 20px;
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+                    }
+                    span{
+                        display: none;
+                    }
+
+                    .titlenavbarMenuItem{
+                        display: block;
+                        margin-left: 12px;
+                        font-size: 21px;
+                        font-weight: 500;
+                    }
+        
+                    span{
+                        margin: 0px 20px;
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

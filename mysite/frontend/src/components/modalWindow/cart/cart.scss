@@ -1,0 +1,385 @@
+.containerCartBlock {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: white;
+  display: grid;
+  grid-template-rows: 100px 1fr 130px;
+  transition: 0.3s ease-in-out;
+
+
+  .modalBlockTitle {
+    padding: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 94px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .modalBlockCartItems {
+    margin-top: 62px;
+    overflow-y: auto;
+    // height: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    .productNull {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+        margin-bottom: 10px;
+        width: 300px;
+      }
+      h2 {
+        margin: 0;
+      }
+      p {
+        opacity: 0.5;
+        text-align: center;
+      }
+    }
+  }
+  .modalBlockCartItems::-webkit-scrollbar {
+    width: 0px;
+  }
+  .modalBlockCartButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #f3f3f3;
+    .MuiButton-containedPrimary {
+      width: 50%;
+      height: 50%;
+      div {
+        transition: 0.3s ease-in-out;
+      }
+      &:hover div {
+        margin: 20px;
+      }
+    }
+
+    .cartPrice {
+      font-size: 21px;
+      font-weight: 600;
+    }
+  }
+}
+.wrapperCartProductBlock {
+  max-width: 700px;
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  background: white;
+  justify-content: start;
+  width: 100%;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  margin: 20px 0px;
+  &:hover {
+    box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.25);
+    transform: translateY(-10px);
+  }
+  .containerCartProductBlock {
+    width: 100%;
+    border-radius: 10px 0px 0px 10px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    justify-content: center;
+    grid-gap: 2%;
+    align-items: center;
+    border: 1px solid #f3f3f3;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+
+    .mainContentCartProduct{
+      width: 80%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      grid-template-rows: 1fr;
+      grid-gap: 2%;
+      .CartProductImage {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .CartProductInfo {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        .titleProduct {
+          margin-top: 15px;
+          margin-bottom: 5px;
+          font-size: 21px;
+          font-weight: 700;
+        }
+        .titleCategory {
+          opacity: 0.6;
+        }
+      }
+      .CartSizeProduct {
+        position: relative;
+        display: grid;
+        align-items: end;
+      }
+    }
+    
+    .CartProductCount {
+      width: 80%;
+      height: 100%;
+      display: flex;
+      justify-content: start;
+      position: relative;
+      align-items: center;
+      .cartProductBlockPrice {
+        font-size: 22px;
+        font-weight: 600;
+        margin-left: auto;
+        transition: 0.3s ease-in-out;
+      }
+      p {
+        margin-left: 5%;
+        margin-right: 20%;
+        font-size: 21px;
+        font-weight: 700;
+      }
+      .blockBtnCount{
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        span {
+          font-size: 25px;
+          font-weight: 700;
+          margin: 0px 20px;
+        }
+        svg {
+          opacity: 0.5;
+          cursor: pointer;
+          transition: 0.3 ease-in-out;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .CartProductDelete {
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+      width: 15%;
+    }
+    &:hover svg {
+      color: red;
+    }
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 1024px){
+  .containerCartBlock{
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 960px){
+  .containerCartBlock{
+    width: 100%;
+  }
+  .containerCartBlock .modalBlockCartButton .MuiButton-containedPrimary {
+      width: 70%;
+      height: 50%;
+  }
+
+  
+}
+
+
+@media screen and (max-width:650px) {
+  .wrapperCartProductBlock {
+    max-width: 400px;
+    max-height: 700px;
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    background: white;
+    justify-content: start;
+    width: 100%;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+    margin: 20px 0px;
+    &:hover {
+      box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.25);
+      transform: translateY(-10px);
+    }
+    .containerCartProductBlock {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      border-radius: 10px 0px 0px 10px;
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 100px;
+      justify-content: center;
+      grid-gap: 10px;
+      align-items: center;
+      border: 1px solid #f3f3f3;
+      overflow: hidden;
+      transition: 0.5s ease-in-out;
+  
+      .mainContentCartProduct{
+        width: 85%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 50px 0.5fr;
+        grid-gap: 0px;
+        .CartProductImage {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 150px;
+          }
+        }
+        .CartProductInfo {
+          display: flex;
+          height: 100%;
+          width: 100%;
+          flex-direction: row;
+    justify-content: center;
+    align-items: center;
+          .titleProduct {
+            width:auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 21px;
+            font-weight: 700;
+            margin-right: 10px;
+          }
+          .titleCategory {
+            opacity: 0.6;
+          }
+        }
+        .CartSizeProduct {
+          position: relative;
+          display: grid;
+          align-items: start;
+          z-index: 100;
+    // justify-items: center;
+          .SizeBox{
+            // max-width: 180px;
+            grid-template-columns: repeat(auto-fill, minmax(30px, 48px));
+            background: transparent;
+          }
+        
+          span {
+            display: none;
+          }
+        }
+      }
+      
+      .CartProductCount {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        .cartProductBlockPrice {
+          font-size: 22px;
+          font-weight: 600;
+          margin-left: auto;
+          font-weight: 700;
+          background: gray;
+          color: cyan;
+          padding: 2px 8px;
+          border-radius: 5px;
+        }
+        p {
+          display: none;
+        }
+        .blockBtnCount{
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+          span {
+            font-size: 25px;
+            font-weight: 700;
+            margin: 0px 20px;
+          }
+          svg {
+            opacity: 0.5;
+            cursor: pointer;
+            transition: 0.3 ease-in-out;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+        
+      }
+    }
+    .CartProductDelete {
+      width: 10%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+  
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0.3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        opacity: 1;
+        width: 14%;
+      }
+      &:hover svg {
+        color: red;
+      }
+    }
+  }
+}
+
+
+

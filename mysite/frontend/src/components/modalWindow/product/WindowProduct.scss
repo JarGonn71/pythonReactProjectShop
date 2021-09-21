@@ -1,0 +1,80 @@
+.wrapperWindowProduct {
+  max-width: 600px;
+  position: absolute;
+  background: white;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 150px;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 10px;
+  z-index: 120000;
+  .lakeThisProduct {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+  }
+  .windowProductTop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    .windowProductImg {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    .windowProductInfa {
+      padding-right: 10px;
+      .windowProductTitle {
+        margin-top: 20px;
+        font-size: 21px;
+        font-weight: 500;
+      }
+      p {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 8px;
+        background: #cf171799;
+        color: white;
+        border: 3px solid black;
+      }
+      .SizeBoxTitel {
+        margin: 10px;
+      }
+    }
+  }
+
+  .windowProductBot {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    button {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background: cornflowerblue;
+      font-weight: 600;
+      letter-spacing: 3px;
+      &:hover {
+        background: rgb(64, 177, 253);
+        color: white;
+      }
+      svg {
+        margin-left: 20px;
+      }
+    }
+    div {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+}
+
+.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft.css-cpgvjg-MuiSnackbar-root{
+  z-index: 15000;
+}

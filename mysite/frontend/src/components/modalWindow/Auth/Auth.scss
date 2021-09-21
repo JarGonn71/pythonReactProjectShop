@@ -1,0 +1,131 @@
+.blockAuth {
+  width: 60%;
+  height: 92%;
+  margin-top: 200px;
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  position: relative;
+  animation: showAuthBlock 0.2s ease-in-out;
+  z-index: 130000;
+
+  .btnCloseAuth {
+    position: absolute;
+    right: -35px;
+    top: 1%;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+
+@keyframes showAuthBlock {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.boxTopBtn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  div {
+    justify-content: center;
+    position: relative;
+    display: flex;
+
+    .lineSlider {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 10%;
+      width: 100px;
+      border-radius: 10px;
+      background: black;
+      transition: 0.15s ease-in-out;
+    }
+
+    .btnTop {
+      margin: 0px 20px;
+      font-size: 21px;
+      font-weight: 500;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 20;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+
+      &.active {
+        transform: translateY(-10px);
+        // color: cyan;
+      }
+    }
+  }
+}
+
+.wrapperForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  //   padding: 20px;
+  margin-top: 12%;
+
+  .containerForm {
+    width: 60%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .formError{
+      color: red;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+
+    }
+    .MuiFormControl-root {
+      animation: showForm 0.2s ease-in-out;
+      margin-bottom: 30px;
+      transition: 0.1s ease-in-out;
+      p {
+        position: absolute;
+        bottom: -21px;
+      }
+    }
+    .MuiButton-contained {
+      margin-top: 50px;
+      transition: 0.1s ease-in-out;
+      background-color: #4d910a;
+      color: white;
+      font-weight: 700;
+    }
+    .MuiButton-contained:hover {
+      background-color: chartreuse;
+    }
+
+    .MuiButton-containedPrimary {
+      color: #fff;
+      background-color: #3f51b5;
+      margin-top: 50px;
+      transition: 0.1s ease-in-out;
+    }
+    .MuiButton-containedPrimary:hover {
+      background-color: #466dec;
+    }
+  }
+}
+
+@keyframes showForm {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
